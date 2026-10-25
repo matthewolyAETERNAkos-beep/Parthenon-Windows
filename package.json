@@ -1,0 +1,29 @@
+{
+  "name": "parthenon",
+  "productName": "Parthenon",
+  "version": "1.0.0",
+  "description": "Parthenon media player",
+  "main": "main.js",
+  "author": "Parthenon",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "app.parthenon.player",
+    "productName": "Parthenon",
+    "files": ["main.js", "index.html", "icon.png", "package.json"],
+    "directories": { "buildResources": "build", "output": "dist" },
+    "win": {
+      "icon": "build/icon.png",
+      "target": ["portable", "nsis"]
+    },
+    "portable": { "artifactName": "Parthenon-Portable.exe" },
+    "nsis": { "artifactName": "Parthenon-Setup.exe", "oneClick": true, "perMachine": false }
+  }
+}
